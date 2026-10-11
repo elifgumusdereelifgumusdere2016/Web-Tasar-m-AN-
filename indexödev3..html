@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Değişkenleri ve Tema Değiştirme</title>
+
+    <style>
+        /* Renk ve yazı boyutu değişkenleri */
+        :root {
+            --ana-renk: #be6ceb;
+            --arka-plan: #f4f4f4;
+            --kart-rengi: white;
+            --yazi-rengi: #222;
+            --ikinci-renk: #666;
+
+            /* Tipografi ölçeği */
+            --yazi-kucuk: 14px;
+            --yazi-normal: 16px;
+            --yazi-buyuk: 22px;
+            --yazi-baslik: 32px;
+        }
+
+        /* Koyu tema değişkenleri */
+        body.dark {
+            --ana-renk: #7110b2;
+            --arka-plan: #181818;
+            --kart-rengi: #292929;
+            --yazi-rengi: #ffffff;
+            --ikinci-renk: #bbbbbb;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--arka-plan);
+            color: var(--yazi-rengi);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--ana-renk);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: var(--yazi-baslik);
+        }
+
+        h2 {
+            font-size: var(--yazi-buyuk);
+        }
+
+        p {
+            font-size: var(--yazi-normal);
+        }
+
+        .kart {
+            background-color: var(--kart-rengi);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        button {
+            background-color: var(--ana-renk);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: var(--yazi-normal);
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .renk-kutusu {
+            width: 100px;
+            height: 60px;
+            background-color: var(--ana-renk);
+            border-radius: 5px;
+        }
+
+        .kucuk {
+            font-size: var(--yazi-kucuk);
+        }
+
+        .normal {
+            font-size: var(--yazi-normal);
+        }
+
+        .buyuk {
+            font-size: var(--yazi-buyuk);
+        }
+
+        .baslik {
+            font-size: var(--yazi-baslik);
+        }
+
+        .aciklama {
+            color: var(--ikinci-renk);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: var(--yazi-kucuk);
+            color: var(--ikinci-renk);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>CSS Değişkenleri ve Design Tokens</h1>
+        <p>Web Tasarım ve Programlama Ödevi</p>
+    </header>
+
+    <div class="container">
+
+        <div class="kart">
+            <h2>Tema Değiştirme</h2>
+            <p>
+                Aşağıdaki butona basarak açık ve koyu
+                tema arasında geçiş yapabilirsiniz.
+            </p>
+
+            <button onclick="temaDegistir()" id="temaButon">
+                Koyu Temaya Geç
+            </button>
+        </div>
+
+        <div class="kart">
+            <h2>CSS Özel Değişkenleri</h2>
+
+            <p>
+                CSS değişkenleri sayesinde renkler ve
+                yazı boyutları tek bir yerden yönetilebilir.
+            </p>
+
+            <p>
+                Değişkenler :root içerisinde tanımlanır
+                ve var() fonksiyonu ile kullanılır.
+            </p>
+        </div>
+
+        <div class="kart">
+            <h2>Renk Ölçeği</h2>
+
+            <p>Ana renk değişkeni:</p>
+
+            <div class="renk-kutusu"></div>
+
+            <p class="aciklama">
+                Bu kutunun rengi --ana-renk
+                değişkeninden alınmaktadır.
+            </p>
+        </div>
+
+        <div class="kart">
+            <h2>Tipografi Ölçeği</h2>
+
+            <p class="kucuk">Küçük Yazı - 14px</p>
+
+            <p class="normal">Normal Yazı - 16px</p>
+
+            <p class="buyuk">Büyük Yazı - 22px</p>
+
+            <p class="baslik">Başlık Yazısı - 32px</p>
+
+            <p class="aciklama">
+                Yazı boyutları CSS değişkenleri
+                kullanılarak ayarlanmıştır.
+            </p>
+        </div>
+
+    </div>
+
+    <footer>
+        Web Tasarım ve Programlama - CSS Ödevi
+    </footer>
+
+    <script>
+        // Açık ve koyu tema arasında geçiş
+        function temaDegistir() {
+
+            document.body.classList.toggle("dark");
+
+            let buton = document.getElementById("temaButon");
+
+            if (document.body.classList.contains("dark")) {
+                buton.innerText = "Açık Temaya Geç";
+            }
+            else {
+                buton.innerText = "Koyu Temaya Geç";
+            }
+        }
+    </script>
+
+</body>
+</html>
