@@ -1,0 +1,18 @@
+#paragraf1{
+    color:rgb(233, 60, 210);
+    font-size:30px;
+}
+#paragraf2{
+    color:rgb(218, 235, 35);
+    font-size:20px;
+}
+#paragraf3{
+    color:rgb(248, 163, 5);
+    font-size:15px;
+}
+
+.Baslık{
+    color:rgb(80, 108, 231);
+    font-size:50px;
+    text-align:center;
+}
